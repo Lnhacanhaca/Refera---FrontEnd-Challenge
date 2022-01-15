@@ -1,0 +1,67 @@
+{% extends 'main.htm' %}
+{% load static %}
+
+
+{% block content%}
+<div id="layoutSidenav_content">
+               
+    <main>
+        <div class="container-fluid px-4">
+         
+      
+            <h1 class="mt-4">Customer List</h1>
+            
+            <div class="col-xl-3 col-md-6">
+                <div class="btn btn-success text-white mb-4">
+                    
+                    <a href="/customer_form" class="btn btn-success">New Customer</a>
+                    
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    
+                </div>
+                <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table" id="datatablesSimple">
+                        <thead class="table-light">
+                    <tr>              
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Company</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for clients in clients %}
+                
+                     <tr>
+                        <th scope="row">{{clients.id}}</th>
+                        <td>{{clients.name}}</td>
+                        <td>{{clients.address.city}}</td>
+                        <td>{{clients.email}}</td>
+                        <td>{{clients.phone}}</td>
+                        <td>{{clients.company.name}}</td>
+                        <td>
+                            <a href="" class="btn btn-dark">View</a>
+                            <a href="" class="btn btn-primary">Edit</a>
+                            <a href="" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                    {%endfor%}
+                    
+                                </tbody>
+                </table>
+                </div>
+                                                   
+                </div>
+            </div>
+            
+        </div>
+    </main>
+{%endblock%}

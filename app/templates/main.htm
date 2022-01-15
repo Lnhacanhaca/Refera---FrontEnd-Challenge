@@ -10,13 +10,12 @@
     <title>Refera - FrontEnd PL Code Challenge</title>
     <link rel="stylesheet" href="{%static 'css/style.css' %}">
     <link rel="stylesheet" href="{%static 'css/bootstrap.min.css' %}">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    
 
 </head>
 <body>
@@ -52,13 +51,13 @@
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Menu</div>
                             <a class="nav-link" href="/">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
                                 Customer
                             </a>
                             
                            
                             <a class="nav-link" href="{% url 'order_main'%}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-sort-amount-up"></i></div>
                                 Order
                             </a>
                            
@@ -86,45 +85,16 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="{%static 'js/bootstrap.min.js'%}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/cjs/popper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+        
+        
         <script>
             
-            $("#submit").click(function(){
-                
-                var name =$("#firstName").val();
-                var cpf =$("#cpf").val();
-                var date =$("#picker").val();
-                var email =$("#emailInfo").val();
-                var phone =$("#phoneNumber").val();
-
-                if (name == '' || cpf == '' || date == '' || email == '' || phone== ''){
-                    swal({
-                        title: "Fild is Empty!",
-                        text: "Please check the missing field",
-                        icon: "warning",
-                        button: "Ok",
-                      });
-                }else{
-                    
-                    $("#submit").click(function(){
-                        location.href  = '/';
-                    })    
-                    swal({
-                        title: "Usuario adicionado com sucesso",
-                        icon: "success",
-                        
-                      });
-                     
-                    
-               
-                }
-                 
-            })
-
+            
+            //Mask CPF
             function mask_cpf(){
                 var cpf =document.getElementById('cpf')
                 if(cpf.value.length == 3 || cpf.value.length == 7){
@@ -134,7 +104,58 @@
 
                 }
             }
+            //Mask email 
+            $(document).ready(function(){
+                // set initially button state hidden
+                $("#btn").hide();
+                // use keyup event on email field
+                $("#emailInfo").keyup(function(){
+                    if(validateEmail()){
+                        // if the email is validated
+                        // set input email border green
+                        $("#emailInfo").css("border","2px solid green");
+                        // and set label 
+                        $("#emailMsg").html("<p class='text-success'>Email Validated</p>");
+                    }else{
+                        // if the email is not validated
+                        // set border red
+                        $("#emailInfo").css("border","2px solid red");
+                        $("#emailMsg").html("<p class='text-danger'>Email Un-validated</p>");
+                    }
+                    buttonState();
+                });
+               
+            });
+
+            function buttonState(){
+                if(validateEmail()){
+                    // if email 
+                    // then button should show visible
+                    $("#btn").show();
+                }else{
+                    // if both email and pasword are not validated
+                    // button state should hidden
+                    $("#btn").hide();
+                }
+            }
+        
             
+            function validateEmail(){
+                // get value of input email
+                var email=$("#emailInfo").val();
+                // use reular expression
+                 var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
+                 if(reg.test(email)){
+                     return true;
+                 }else{
+                     return false;
+                 }
+        
+            }
+
+          
+            
+            //Button cancel on customer form end back to list 
                 $('#cancel').click(() => {
                     location.href  = '/';
                 })

@@ -16,20 +16,21 @@
   
         
             
-            <form class="row g-3" action="">
+            <form class="row g-3" action="" id="form">
                 {%csrf_token%}
                 
                 <div class="col-md-8">
                     <label for="firstName" class="form-label">Name</label>
-                       <input type="text" class="form-control" id="firstName" >
+                       <input type="text"  class="form-control" id="firstName" placeholder="Type your name..." >
                 </div>
                 <div class="col-md-4">
                     <label for="phoneNumber" class="form-label">Phone Number</label>
-                    <input type="text" class="form-control" id="phoneNumber" placeholder="(00) 0000.0000">
+                    <input type="text" class="form-control" id="phoneNumber" onkeypress="$(this).mask('(00) 0000 0000')" placeholder="(00) 0000.0000">
                 </div>
                 <div class="col-md-8">
                     <label for="emailInfo" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="emailInfo" data-inputmask=" 'alias': 'email'">
+                    <input type="email" class="form-control" id="emailInfo" placeholder="Type your e-mail ...">
+                    <span id="emailMsg"></span>
                 </div>
                 <div class="col-md-4">
                     <label for="deadline" class="form-label">Deadline</label>
@@ -45,7 +46,7 @@
                 
                 
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary" id="submit">Save</button>
+                    <button type="submit" class="btn btn-primary" id="btn">Save</button>
 
                
                     <button type="reset" class="btn btn-danger" id="cancelar">

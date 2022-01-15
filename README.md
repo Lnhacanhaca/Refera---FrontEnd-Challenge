@@ -1,6 +1,5 @@
 # Challenge Front-end Refera
 
-- lista
 ## Acceptance criteria
 
 - Criteria

@@ -14,7 +14,7 @@
             <h1 class="mt-4">Order Register</h1>
             <div class="col-xl-8 col-md-6">
   
-        
+         <p class="lead">Fill in all required fields</p>
             
             <form class="row g-3" action="" id="form">
                 {%csrf_token%}
@@ -46,12 +46,12 @@
                 
                 
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary" id="btn">Save</button>
+                    <button type="submit" class="btn btn-success  btn-block" id="btn">
+                        <a href="{% url 'order_main' %}" style="text-decoration: none; color:#fff"> Save </a> 
+                    </button>
 
                
-                    <button type="reset" class="btn btn-danger" id="cancelar">
-                        <a href="{% url 'order_main' %}" style="text-decoration: none; color:#fff"> Cancel </a> 
-                    </button>
+                    <button type="reset" class="btn btn-danger" id="cancelar"> Cancel </button>
 
                 </div>
    

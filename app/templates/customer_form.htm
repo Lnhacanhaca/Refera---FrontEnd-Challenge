@@ -14,14 +14,17 @@
             <h1 class="mt-4">Customer Register</h1>
             <div class="col-xl-8 col-md-6">
   
-        
+                <div id="result"></div>
+                <p class="lead">Fill in all required fields</p>
             
-            <form class="row g-3" action="">
+            <form class="row g-3" action="" id="form" >
                 {%csrf_token%}
-                
+            
+              
+
                 <div class="col-md-8">
                     <label for="firstName" class="form-label">Full Name</label>
-                       <input type="text" class="form-control" id="firstName" placeholder="Type your name..." >
+                       <input type="text" class="form-control" id="firstName" placeholder="Type your name...">
                 </div>
                 <div class="col-md-4">
                     <label for="cpf" class="form-label">CPF</label>
@@ -38,10 +41,12 @@
                 </div>
                 <div class="col-md-4">
                     <label for="phoneNumber" class="form-label">Phone Number</label>
-                    <input type="tel" class="form-control" id="phoneNumber" onkeypress="$(this).mask('(00) 0000 0000')" placeholder="(00) 0000.0000">
+                    <input type="tel" class="form-control" id="phoneNumber" onkeypress="$(this).mask('(00) 0000 0000')" placeholder="(00) 0000.0000" >
                 </div>
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary btn-block" id="btn" >Save</button>
+                    <button type="submit" class="btn btn-success btn-block"   id="btn">
+                         Save 
+                    </button>
 
                
                     <button type="reset" class="btn btn-danger" id="cancel">Cancel</button>
@@ -49,9 +54,9 @@
                 </div>
    
             </form>
-            
-         
-            </div>
+
+           
+                
             
         </div>
 

@@ -19,8 +19,8 @@ from app.views import home, customer_form, order, order_form
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home),
-    path('customer_form/', customer_form),
+    path('', home, name="home"),
+    path('customer_form/', customer_form, name="customer"),
     path ('order/', order, name="order_main"),
     path ('order_form/', order_form, name="orders")
 ]

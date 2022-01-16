@@ -1,5 +1,20 @@
 # Challenge Front-end Refera
 
+- Home - Customer List
+[![Custimer-List.jpg](https://i.postimg.cc/C5cJYxg3/Custimer-List.jpg)](https://postimg.cc/kRtWv9Ds)
+
+- Customer Register
+[![Custimer-reg.jpg](https://i.postimg.cc/43XKvbt1/Custimer-reg.jpg)](https://postimg.cc/zyPX8hxL)
+
+- Order List
+[![order.jpg](https://i.postimg.cc/tRszVp94/order.jpg)](https://postimg.cc/NLwX3hy3)
+
+- Order Register
+[![reg.jpg](https://i.postimg.cc/2S7df572/reg.jpg)](https://postimg.cc/qNg6s4Y3)
+
+- Navbar Hamburguer
+[![Navbar-humburguer-menu.jpg](https://i.postimg.cc/TYrgrPFf/Navbar-humburguer-menu.jpg)](https://postimg.cc/4mxYGXXS)
+
 ## Acceptance criteria
 
 - Criteria

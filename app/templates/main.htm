@@ -180,17 +180,42 @@
                     swal({
                         title: "Data added successfully",
                         icon: "success",
-                        
                         timer: 3000,
                     }), function(){
-                        window.location.href  = "{% url 'home' %}";
+                        location.href  = "{% url 'home' %}";
                     }
                       }
                      
                     
                
                 })
-                 
+          
+        
+        
+
+
+        //AJAX
+            var form = document.querySelector('#form');
+            form.addEventListener('submit', function(e) {
+            e.preventDefault(); 
+
+            var url = this.action; 
+            var formData = new FormData(this); // <--- os dados da form
+            var ajax = new XMLHttpRequest();
+            ajax.open("POST", url, true);
+            ajax.onload = function() {
+                if (ajax.status == 200) {
+                var res = JSON.parse(ajax.responseText); // a resposta do servidor
+                // fazer algo com a resposta do servidor
+                var result  =doc.querySelector('#result');
+                result.innerHtml ='Sucesso'
+                result.classList.add('alert');
+                result.classlist.add('alert-success')
+            }
+            };
+            ajax.send(formData);
+            });
+
             
             
             //Button cancel on customer form end back to list 
